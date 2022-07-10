@@ -1,0 +1,28 @@
+@mixin displayes($display, $alignItem, $justify, $wrap,$direction) {
+  display: $display;
+  align-items: $alignItem;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+.load_whatsapp_container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f9fa;
+  @include displayes(flex, center, center, unset,column);
+
+  .whats_app_loading {
+    width: 450px;
+    height: 400px;
+    @include displayes(flex, center, unset, unset,column);
+  }
+}
+// f8f9fa
+// #00a884
+
+// width: 450px;
+// height: 400px;
+// box-shadow: 1px 1px 7px #555;
+// background-color: #fff;
+// border-radius: 8px;
