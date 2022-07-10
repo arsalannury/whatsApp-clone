@@ -1,5 +1,5 @@
-import { JsxElement } from "typescript";
+import React from "react";
 
-export interface Props {
-  children : JsxElement[] | JsxElement
+export interface ChildrenProps {
+  children : React.ReactNode
 }
