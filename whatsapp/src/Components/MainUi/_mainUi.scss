@@ -9,6 +9,7 @@
 .main_ui {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background-color: #ddd;
   position: relative;
   @include displayes(flex, center, center, unset, column);
