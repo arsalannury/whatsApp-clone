@@ -11,7 +11,7 @@
   height: 100vh;
   background-color: #ddd;
   position: relative;
-  @include displayes(flex, center, center, unset, row);
+  @include displayes(flex, center, center, unset, column);
 
   &::before {
     content: "";
@@ -27,8 +27,10 @@
     align-self: flex-start;
     z-index: 1;
     width: 55%;
-    margin: 25px 0 0 0;
-    @include displayes(flex, center, flex-start, unset, row);
+    margin: 15px 0 0 0;
+    position: absolute;
+    top: 10px;
+    @include displayes(flex, center, center, unset, row);
   }
 
   .whatsapp_name {

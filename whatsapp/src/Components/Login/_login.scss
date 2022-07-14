@@ -1,0 +1,75 @@
+@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
+  display: $display;
+  align-items: $alignItem;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+.login_section {
+  width: 450px;
+  min-height: 450px;
+  background-color: #eee;
+  box-shadow: 0 0 5px #999;
+  border-radius: 8px;
+  z-index: 1;
+
+  .qr_code {
+    @include displayes(flex, center, space-evenly, unset, column);
+    margin: 15px 0;
+
+    span {
+      margin-bottom: 10px;
+    }
+  }
+
+  .hr {
+    width: 60%;
+    margin: auto;
+    border: 1px solid #fff;
+  }
+
+  .login_btn {
+    margin: 80px 0;
+    @include displayes(flex, center, space-evenly, unset, column);
+    .login {
+      overflow: hidden;
+      position: relative;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      padding: 13px 18px;
+      background-color: #00a884;
+      color: #fff;
+      border-radius: 8px;
+      transition: all 0.5s ease;
+      @include displayes(flex, center, space-evenly, unset, row);
+
+      .login_text {
+        transition: all 0.5s ease;
+      }
+
+      .login_text_replace {
+        transition: all 0.9s ease;
+        transform: translateY(-300px);
+        position: absolute;
+        left: 22px;
+      }
+
+      &:hover {
+        background-color: #056450;
+        .login_text {
+          transform: translateX(-300px);
+        }
+        .login_text_replace {
+          transform: translateY(0);
+        }
+      }
+
+      img {
+        width: 30px;
+        margin-left: 6px;
+      }
+    }
+  }
+}

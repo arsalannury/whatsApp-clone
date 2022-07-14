@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      {loading && <LoadWhatsApp />}
+      {/* {loading && <LoadWhatsApp />} */}
       <MainUi />
     </>
   );

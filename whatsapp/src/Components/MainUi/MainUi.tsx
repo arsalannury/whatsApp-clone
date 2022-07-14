@@ -1,5 +1,6 @@
 import "./_mainUi.scss";
 import { Switch, Route } from "react-router-dom";
+import Login from "../Login/Login";
 
 const MainUi: React.FC = () => {
   return (
@@ -9,6 +10,9 @@ const MainUi: React.FC = () => {
           <img className="whatsapp_logo" src="logo.png" alt="whats_app_logo" />
           <span className="whatsapp_name">WHATSAPP WEB</span>
         </div>
+
+        <Login />
+
       </div>
     </>
   );
