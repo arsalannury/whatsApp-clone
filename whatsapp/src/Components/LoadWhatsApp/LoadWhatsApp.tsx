@@ -9,9 +9,7 @@ const LoadWhatsApp: React.FC = () => {
   return (
     <div className="load_whatsapp_container">
       <div className="whats_app_loading">
-        <WhatsappOutlinedIcon
-          sx={{ fontSize: "4.5em", margin: "40px 0", color: "#ccc" }}
-        />
+        <span className="material-icons whatsapp_icon_logo">whatsapp</span>
         <LinearProgressTheme>
           <LinearProgress />
         </LinearProgressTheme>

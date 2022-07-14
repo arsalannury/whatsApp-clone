@@ -1,3 +1,5 @@
+@import "_animationLogo.scss";
+
 @mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
   display: $display;
   align-items: $alignItem;
@@ -18,6 +20,22 @@ $fontColor: #999;
     width: 450px;
     height: 400px;
     @include displayes(flex, center, unset, unset, column);
+
+    .whatsapp_icon_logo {
+      font-size: 4.5em;
+      margin: 40px 0;
+      animation: logo 3s ease-in-out infinite;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        130deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(221, 221, 221, 1) 100%
+      );
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   .whatsapp_footer {
@@ -27,7 +45,7 @@ $fontColor: #999;
     p {
       color: $fontColor;
       margin: 10px 0;
-      font-size: .9em;
+      font-size: 0.9em;
     }
 
     .whatsapp_description {
@@ -43,6 +61,7 @@ $fontColor: #999;
     }
   }
 }
+
 // f8f9fa
 // #00a884
 
