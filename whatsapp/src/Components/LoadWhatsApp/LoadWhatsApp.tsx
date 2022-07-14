@@ -2,17 +2,26 @@ import React from "react";
 import WhatsappOutlinedIcon from "@mui/icons-material/WhatsappOutlined";
 import LinearProgress from "@mui/material/LinearProgress";
 import LinearProgressTheme from "../MuiTheme/LinearProgressTheme";
+import LockIcon from "@mui/icons-material/Lock";
 import "./_loadWhatsApp.scss";
 
 const LoadWhatsApp: React.FC = () => {
   return (
     <div className="load_whatsapp_container">
       <div className="whats_app_loading">
-        <WhatsappOutlinedIcon />
+        <WhatsappOutlinedIcon
+          sx={{ fontSize: "4.5em", margin: "40px 0", color: "#ccc" }}
+        />
         <LinearProgressTheme>
           <LinearProgress />
         </LinearProgressTheme>
-        <p>222</p>
+        <div className="whatsapp_footer">
+          <p>WhatsApp</p>
+          <div className="whatsapp_description">
+            <LockIcon />
+            <span>End-to-end encrypted</span>
+          </div>
+        </div>
       </div>
     </div>
   );

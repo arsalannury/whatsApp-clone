@@ -1,4 +1,4 @@
-@mixin displayes($display, $alignItem, $justify, $wrap,$direction) {
+@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
   display: $display;
   align-items: $alignItem;
   justify-content: $justify;
@@ -6,16 +6,41 @@
   flex-direction: $direction;
 }
 
+$fontColor: #999;
+
 .load_whatsapp_container {
   width: 100vw;
   height: 100vh;
   background-color: #f8f9fa;
-  @include displayes(flex, center, center, unset,column);
+  @include displayes(flex, center, center, unset, column);
 
   .whats_app_loading {
     width: 450px;
     height: 400px;
-    @include displayes(flex, center, unset, unset,column);
+    @include displayes(flex, center, unset, unset, column);
+  }
+
+  .whatsapp_footer {
+    @include displayes(flex, center, space-evenly, unset, column);
+    margin: 40px 0;
+
+    p {
+      color: $fontColor;
+      margin: 10px 0;
+      font-size: .9em;
+    }
+
+    .whatsapp_description {
+      @include displayes(flex, center, space-evenly, unset, row);
+      svg {
+        color: #aaa;
+        font-size: 0.9em;
+      }
+      span {
+        font-size: 0.7em;
+        color: $fontColor;
+      }
+    }
   }
 }
 // f8f9fa

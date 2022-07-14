@@ -8,7 +8,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#888",
-          width: "100%",
+          width: "80%",
+          height: "3px"
         },
         bar: {
           backgroundColor: "lightgray",

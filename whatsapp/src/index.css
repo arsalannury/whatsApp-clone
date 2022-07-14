@@ -3,6 +3,12 @@
     padding: 0;
     font-size: 16px;
     box-sizing: border-box;
+    font-family: whatsapp_font_one;
+}
+
+@font-face {
+    font-family: whatsapp_font_one;
+    src: url(./fonts/MerriweatherSans-Regular.ttf);
 }
 
 body{
