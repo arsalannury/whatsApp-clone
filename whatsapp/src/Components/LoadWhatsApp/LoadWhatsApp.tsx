@@ -1,5 +1,4 @@
 import React from "react";
-import WhatsappOutlinedIcon from "@mui/icons-material/WhatsappOutlined";
 import LinearProgress from "@mui/material/LinearProgress";
 import LinearProgressTheme from "../MuiTheme/LinearProgressTheme";
 import LockIcon from "@mui/icons-material/Lock";
