@@ -1,0 +1,40 @@
+@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
+  display: $display;
+  align-items: $alignItem;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+.main_ui {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ddd;
+  position: relative;
+  @include displayes(flex, center, center, unset, row);
+
+  &::before {
+    content: "";
+    background-color: #00a884;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 220px;
+    box-shadow: 0 1px 2px #888;
+  }
+
+  .logo {
+    align-self: flex-start;
+    z-index: 1;
+    width: 55%;
+    margin: 25px 0 0 0;
+    @include displayes(flex, center, flex-start, unset, row);
+  }
+
+  .whatsapp_name {
+    font-size: 0.8em;
+    color: #fff;
+    padding: 8px;
+    font-weight: 500;
+  }
+}
