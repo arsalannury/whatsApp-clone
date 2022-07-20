@@ -1,0 +1,38 @@
+@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
+  display: $display;
+  align-items: $alignItem;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+.whatsapp_sidebar {
+  min-width: 475px;
+  @include displayes(flex, center, start, unset, column);
+
+  .header_chat_list {
+    width: 100%;
+    padding: 0 13px;
+    background-color: #f0f2f5;
+    height: 57px;
+    @include displayes(flex, center, space-between, unset, row);
+
+    .avatar {
+      align-items: center;
+      justify-content: center;
+      flex-grow: 0.3;
+      .profile_img {
+        width: 40px;
+        // margin-left: 12px;
+        border-radius: 50%;
+      }
+    }
+
+    .icons {
+    //   margin-right: ;
+      height: 100%;
+      flex-grow: 0.2;
+      @include displayes(flex, center, space-around, unset, row);
+    }
+  }
+}

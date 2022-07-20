@@ -1,4 +1,4 @@
-@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
+ @mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
   display: $display;
   align-items: $alignItem;
   justify-content: $justify;
@@ -12,6 +12,8 @@
   background-color: #eee;
   border-radius: 1px;
   z-index: 1;
+  display: flex;
+  justify-content: start;
 }
 
 @media screen and (max-width: 1400px) {
