@@ -1,5 +1,6 @@
 import MenuSvg from "./MenuSvg";
 import MessageSvg from "./MessageSvg";
+import SearchSvg from "./SearchSvg";
 import StatusSvg from "./StatusSvg";
 import "./_sidebar.scss";
 
@@ -21,7 +22,12 @@ const SideBar: React.FC = () => {
             <MenuSvg />
           </div>
         </div>
-        <div className="search_bar"></div>
+        <div className="search_bar">
+          <div className="search_text_icon">
+         <SearchSvg />
+          <input type="text" className="whatsapp_search" placeholder="Search or start new chat" />
+          </div>
+        </div>
         <div className="chat_list"></div>
       </div>
     </>
