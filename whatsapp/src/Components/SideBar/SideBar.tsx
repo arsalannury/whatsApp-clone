@@ -1,3 +1,4 @@
+import FilterChatSvg from "./FilterChatSvg";
 import MenuSvg from "./MenuSvg";
 import MessageSvg from "./MessageSvg";
 import SearchSvg from "./SearchSvg";
@@ -26,6 +27,9 @@ const SideBar: React.FC = () => {
           <div className="search_text_icon">
          <SearchSvg />
           <input type="text" className="whatsapp_search" placeholder="Search or start new chat" />
+          </div>
+          <div className="filter_chat_wrapper">
+          <FilterChatSvg />
           </div>
         </div>
         <div className="chat_list"></div>

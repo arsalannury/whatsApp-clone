@@ -35,33 +35,42 @@
   }
 
   .search_bar {
+    @include displayes(flex, center, unset, unset, row);
     background-color: #fff;
     width: 100%;
     padding: 6px;
-    @include displayes(flex, center, unset, unset, row);
     .search_text_icon {
       position: relative;
+      width: 90%;
+      @include displayes(flex, center, center, unset, row);
       .whatsapp_search {
         font-weight: 100;
+        width: 95%;
         border: none;
         outline: none;
-        padding: 5px;
+        padding: 7px;
         border-radius: 8px;
+        // margin: 0 0 0 1px;
         background-color: #f0f2f5;
-        text-indent: 30px;
+        text-indent: 45px;
         &::placeholder {
           font-size: 0.8em;
           font-weight: 100;
           opacity: 0.7;
-          margin-left: 30px;
+          margin-left: 45px;
         }
       }
       .search_svg {
         position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        left: 20px;
+        @include displayes(flex, center, center, unset, row);
         height: 100%;
+      }
+    }
+    .filter_chat_wrapper {
+        margin: 0 0 0 10px;
+      .filter_svg {
+        opacity: 0.4;
       }
     }
   }
