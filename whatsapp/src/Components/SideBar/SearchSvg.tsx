@@ -5,6 +5,7 @@ const SearchSvg = () => {
         className="search_svg"
         data-testid="search"
         data-icon="search"
+        style={{color:"GrayText",cursor:"pointer"}}
       >
         <svg viewBox="0 0 24 24" width="24" height="24">
           <path

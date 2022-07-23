@@ -1,7 +1,7 @@
 function FilterChatSvg() {
   return (
     <>
-      <span data-testid="filter" data-icon="filter" className="filter_svg">
+      <span data-testid="filter" data-icon="filter" className="filter_svg" style={{color:"GrayText",cursor:"pointer"}}>
         <svg
           viewBox="0 0 24 24"
           width="20"

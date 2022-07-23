@@ -1,3 +1,4 @@
+import User from "../Users/User";
 import FilterChatSvg from "./FilterChatSvg";
 import MenuSvg from "./MenuSvg";
 import MessageSvg from "./MessageSvg";
@@ -26,13 +27,51 @@ const SideBar: React.FC = () => {
         <div className="search_bar">
           <div className="search_text_icon">
          <SearchSvg />
-          <input type="text" className="whatsapp_search" placeholder="Search or start new chat" />
+          <input type="text" className="whatsapp_search_input" placeholder="Search or start new chat" />
           </div>
           <div className="filter_chat_wrapper">
           <FilterChatSvg />
           </div>
         </div>
-        <div className="chat_list"></div>
+        <div className="chat_list">
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+
+        </div>
       </div>
     </>
   );

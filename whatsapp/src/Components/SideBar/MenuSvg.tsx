@@ -1,7 +1,7 @@
 const MenuSvg = () => {
   return (
     <>
-      <span data-testid="menu" data-icon="menu" className="" style={{color:"GrayText"}}>
+      <span data-testid="menu" data-icon="menu" className="" style={{color:"GrayText",cursor:"pointer"}}>
         <svg viewBox="0 0 24 24" width="24" height="24" className="">
           <path
             fill="currentColor"

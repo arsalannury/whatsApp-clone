@@ -1,0 +1,52 @@
+@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
+  display: $display;
+  align-items: $alignItem;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+.whatsapp_user_main {
+  @include displayes(flex, center, unset, nowrap, row);
+  padding: 0 10px;
+  
+  
+  .user_image {
+    img {
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  .user_details_main {
+    @include displayes(flex, center, center, unset, column);
+    flex: 1;
+    padding: 15px 0;
+    border-bottom: 0.5px solid #eee;
+
+    .information_user {
+      @include displayes(flex, center, space-between, unset, row);
+      width: 100%;
+      //   padding: 0 18px;
+
+      .message_date {
+        font-size: 0.7em;
+        opacity: 0.4;
+        margin-right: 12px;
+      }
+
+      .user_name {
+        font-size: 0.9em;
+        opacity: 0.9;
+        margin-left: 22px;
+      }
+    }
+
+    .last_user_message {
+      font-size: 0.8em;
+      color: #888;
+      width: 100%;
+      padding-left: 22px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 const MessageSvg = () => {
   return (
     <>
-      <span data-testid="chat" data-icon="chat" className="" style={{color:"GrayText"}}>
+      <span data-testid="chat" data-icon="chat" className="" style={{color:"GrayText",cursor:"pointer"}}>
         <svg viewBox="0 0 24 24" width="24" height="24" className="">
           <path
             fill="currentColor"

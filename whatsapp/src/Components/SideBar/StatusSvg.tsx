@@ -5,7 +5,7 @@ const StatusSvg = () => {
         data-testid="status-v3-unread"
         data-icon="status-v3-unread"
         className=""
-        style={{color:"GrayText"}}
+        style={{color:"GrayText",cursor:"pointer"}}
       >
         <svg
           version="1.1"
