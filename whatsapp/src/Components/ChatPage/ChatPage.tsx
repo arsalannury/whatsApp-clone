@@ -1,14 +1,33 @@
-import React from "react";
+import React, { SyntheticEvent, useState } from "react";
 import MenuSvg from "../SideBar/MenuSvg";
 import AttachFileSvg from "./AttachFileSvg";
 import LensSvg from "./LensSvg";
 import StickerSvg from "./StickerSvg";
 import VoiceSvg from "./VoiceSvg";
+import Picker from 'emoji-picker-react';
 import "./_chatPage.scss";
 
 const ChatPage: React.FC = () => {
+  const [message, setMessage] = useState<string>("");
+  const [emoji, setEmoji] = useState<boolean>(false);
+
+  const handleChangeMssage = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setMessage(event.target.value);
+  };
+
+  const onEmojiClick = (event, emojiObject) => {
+    setMessage(message+emojiObject.emoji)
+  };
+
+  const handleStickerShow = (): void => {
+    setEmoji(!emoji);
+  }
+
   return (
     <div className="chat-page-container">
+      {emoji && <Picker onEmojiClick={onEmojiClick} />}
       <div className="information-user">
         <div className="all-user-detail">
           <img src="profile.jpg" alt="profile-user-img" />
@@ -29,7 +48,7 @@ const ChatPage: React.FC = () => {
 
       <div className="message-send-section">
         <div className="icon-actions">
-          <StickerSvg />
+          <StickerSvg clicked={handleStickerShow} />
           <AttachFileSvg />
         </div>
 
@@ -39,6 +58,8 @@ const ChatPage: React.FC = () => {
           id="message"
           className="send-message-input"
           placeholder="Type a message"
+          value={message}
+          onChange={(event) => {handleChangeMssage(event)}}
         />
 
         <VoiceSvg />

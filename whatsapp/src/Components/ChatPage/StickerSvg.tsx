@@ -1,6 +1,14 @@
-function StickerSvg() {
+import { StickerSvgProp } from "../InterFaces/StickerSvgProp";
+
+function StickerSvg(props: StickerSvgProp) {
   return (
-    <span data-testid="smiley" data-icon="smiley" className="sticker-svg"  style={{color:"GrayText"}}>
+    <span
+      data-testid="smiley"
+      data-icon="smiley"
+      className="sticker-svg"
+      style={{ color: "GrayText" }}
+      onClick={props.clicked}
+    >
       <svg
         viewBox="0 0 24 24"
         width="24"

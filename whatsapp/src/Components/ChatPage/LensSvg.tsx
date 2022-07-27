@@ -1,7 +1,7 @@
 
 function LensSvg() {
   return (
-    <span data-testid="search-alt" data-icon="search-alt" className=""  style={{color:"GrayText"}}>
+    <span data-testid="search-alt" data-icon="search-alt" className=""  style={{color:"GrayText",cursor: "pointer"}}>
       <svg viewBox="0 0 24 24" width="24" height="24" className="">
         <path
           fill="currentColor"

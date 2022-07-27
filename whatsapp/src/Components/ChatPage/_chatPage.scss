@@ -11,6 +11,7 @@ $TEXT_COLOR: #444;
 .chat-page-container {
   @include displayes(flex, center, start, unset, column);
   width: 100%;
+  position: relative;
 
   .information-user {
     @include displayes(flex, center, space-between, unset, row);
@@ -68,6 +69,7 @@ $TEXT_COLOR: #444;
     .icon-actions {
       @include displayes(flex, center, space-between, unset, row);
       height: 100%;
+      position: relative;
       .attach-five-svg {
         margin: 0 0 0 10px;
         cursor: pointer;
@@ -80,16 +82,24 @@ $TEXT_COLOR: #444;
     .send-message-input {
       border: none;
       outline: none;
-      border-radius: 10px;
+      border-radius: 7px;
       padding: 9px 12px 11px;
       margin: 5px 10px;
       flex: 1 1 auto;
       min-height: 20px;
+      font-size: 0.9em;
+      color: $TEXT_COLOR;
 
       &::placeholder {
-        font-size: .9em;
+        font-size: 1em;
         color: #667781;
       }
     }
+  }
+  .emoji-picker-react {
+    position: absolute !important;
+    bottom: 70px;
+    left: 20px;
+    z-index: 400;
   }
 }
