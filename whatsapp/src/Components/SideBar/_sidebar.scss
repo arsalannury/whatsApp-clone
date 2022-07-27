@@ -23,6 +23,7 @@
       flex-grow: 0.3;
       .profile_img {
         width: 40px;
+        cursor: pointer;
         border-radius: 50%;
       }
     }
@@ -64,6 +65,7 @@
         }
       }
       .search_svg {
+        cursor: pointer;
         position: absolute;
         left: 20px;
         @include displayes(flex, center, center, unset, row);
@@ -73,6 +75,7 @@
     .filter_chat_wrapper {
         margin: 0 0 0 10px;
       .filter_svg {
+        cursor: pointer;
         opacity: 0.4;
       }
     }
@@ -90,15 +93,16 @@
       background-color: #f8f8f8;
     }
     &::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
     
     &::-webkit-scrollbar-track {
-      background: #f1f1f1;
+      // background: #f1f1f1;
+      background: #fff;
     }
     
     &::-webkit-scrollbar-thumb {
-      background: #aaa;
+      background: #ccc;
     }
   }
 }

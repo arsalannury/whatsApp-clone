@@ -33,7 +33,14 @@ const ChatPage: React.FC = () => {
           <AttachFileSvg />
         </div>
 
-        <input type="text" name="message" id="message" />
+        <input
+          type="text"
+          name="message"
+          id="message"
+          className="send-message-input"
+          placeholder="Type a message"
+        />
+
         <VoiceSvg />
       </div>
     </div>

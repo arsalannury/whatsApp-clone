@@ -34,42 +34,12 @@ const SideBar: React.FC = () => {
           </div>
         </div>
         <div className="chat_list">
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
+          
+           {Array(30).fill({}).map(() => (
+            <>
+            <User />
+            </>
+           ))}
 
         </div>
       </div>
