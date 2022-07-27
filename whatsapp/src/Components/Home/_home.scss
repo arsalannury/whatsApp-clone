@@ -15,6 +15,12 @@
   z-index: 1;
   display: flex;
   justify-content: start;
+
+ .chat-svg-empty-svg {
+  align-self: center;
+  margin: auto;
+ }
+
 }
 
 @media screen and (max-width: 1400px) {
