@@ -1,6 +1,6 @@
 function AttachFileSvg() {
   return (
-    <span data-testid="clip" data-icon="clip" className="attach-five-svg">
+    <span data-testid="clip" data-icon="clip" className="attach-five-svg" style={{color:"GrayText"}}>
       <svg viewBox="0 0 24 24" width="24" height="24" className="">
         <path
           fill="currentColor"

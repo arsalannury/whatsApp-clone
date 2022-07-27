@@ -1,6 +1,6 @@
 function VoiceSvg() {
   return (
-    <span data-testid="ptt" data-icon="ptt" className="">
+    <span data-testid="ptt" data-icon="ptt" className=""  style={{color:"GrayText"}}>
       <svg viewBox="0 0 24 24" width="24" height="24" className="">
         <path
           fill="currentColor"

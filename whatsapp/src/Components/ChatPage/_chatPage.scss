@@ -68,10 +68,10 @@ $TEXT_COLOR: #444;
       @include displayes(flex, center, space-between, unset, row);
       height: 100%;
       .attach-five-svg {
-
+       margin: 0 0 0 10px ;
       }
       .sticker-svg {
-        
+       margin: 0 10px 0 0 ;
       }
     }
   }

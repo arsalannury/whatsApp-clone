@@ -6,6 +6,7 @@ function ChatPageEmptySvg() {
       data-testid="intro-md-beta-logo-light"
       data-icon="intro-md-beta-logo-light"
       className="IVxyB chat-svg-empty-svg"
+      style={{color:"GrayText"}}
     >
       <svg
         width="360"

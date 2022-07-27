@@ -1,6 +1,6 @@
 function StickerSvg() {
   return (
-    <span data-testid="smiley" data-icon="smiley" className="sticker-svg">
+    <span data-testid="smiley" data-icon="smiley" className="sticker-svg"  style={{color:"GrayText"}}>
       <svg
         viewBox="0 0 24 24"
         width="24"
