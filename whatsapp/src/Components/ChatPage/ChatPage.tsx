@@ -27,6 +27,11 @@ const ChatPage: React.FC = () => {
  
       </div>
 
+
+      <div className="message-send">
+        
+      </div>
+
     </div>
   );
 };
