@@ -1,6 +1,9 @@
 import React from "react";
 import MenuSvg from "../SideBar/MenuSvg";
+import AttachFileSvg from "./AttachFileSvg";
 import LensSvg from "./LensSvg";
+import StickerSvg from "./StickerSvg";
+import VoiceSvg from "./VoiceSvg";
 import "./_chatPage.scss";
 
 const ChatPage: React.FC = () => {
@@ -22,16 +25,17 @@ const ChatPage: React.FC = () => {
         </div>
       </div>
 
+      <div className="chat-main-content"></div>
 
-      <div className="chat-main-content">
- 
+      <div className="message-send-section">
+        <div className="icon-actions">
+          <StickerSvg />
+          <AttachFileSvg />
+        </div>
+
+        <input type="text" name="message" id="message" />
+        <VoiceSvg />
       </div>
-
-
-      <div className="message-send">
-        
-      </div>
-
     </div>
   );
 };

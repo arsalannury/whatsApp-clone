@@ -1,4 +1,4 @@
- @mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
+@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
   display: $display;
   align-items: $alignItem;
   justify-content: $justify;
@@ -9,18 +9,17 @@
 .home_page {
   width: 83%;
   height: 95%;
-  // background-color: #eee;
+  overflow: auto;
   background-color: #f8f8f8;
   border-radius: 1px;
   z-index: 1;
   display: flex;
   justify-content: start;
 
- .chat-svg-empty-svg {
-  align-self: center;
-  margin: auto;
- }
-
+  .chat-svg-empty-svg {
+    align-self: center;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 1400px) {
