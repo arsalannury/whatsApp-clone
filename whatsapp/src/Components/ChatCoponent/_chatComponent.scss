@@ -14,7 +14,27 @@
   padding: 0 9px;
   position: relative;
   margin-bottom: 12px;
-  @include displayes(flex, flex-end, center, unset, column);
+  @include displayes(flex, center, flex-end, unset, row);
+
+  &:hover {
+    .react {
+      display: unset;
+    }
+  }
+
+  .react {
+    margin-right: 13px;
+    cursor: pointer;
+    display: none;
+    svg {
+      color: #fff;
+      background-color: #ddd;
+      padding: 5px;
+      font-size: 2em;
+      border-radius: 50%;
+    }
+  }
+
   .chat-container {
     max-width: 65%;
     min-width: 140px;
@@ -25,6 +45,27 @@
     position: relative;
     z-index: 200;
     padding: 6px 7px 8px 9px;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      .message-options {
+        left: 5px;
+      }
+    }
+
+    .message-options {
+      transition: all 0.2s ease-out;
+      position: absolute;
+      background-color: #d9fdd3;
+      border-radius: 50%;
+      cursor: pointer;
+      left: -100px;
+
+      svg {
+        color: #aaa;
+        font-size: 2em;
+      }
+    }
 
     // .message-svg {
     //   position: absolute;
