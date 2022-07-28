@@ -7,6 +7,7 @@ import StatusSvg from "./StatusSvg";
 import "./_sidebar.scss";
 
 const SideBar: React.FC = () => {
+  let key = 0;
   return (
     <>
       <div className="whatsapp_sidebar">
@@ -35,11 +36,35 @@ const SideBar: React.FC = () => {
         </div>
         <div className="chat_list">
           
-           {Array(30).fill({}).map(() => (
-            <>
-            <User />
-            </>
-           ))}
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
 
         </div>
       </div>

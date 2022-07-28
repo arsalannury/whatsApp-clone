@@ -88,10 +88,7 @@
     height: 100%;
     background-color: #fff;
     overflow: auto;
-    &:hover {
-      cursor: pointer;
-      background-color: #f8f8f8;
-    }
+   
     &::-webkit-scrollbar {
       width: 6px;
     }

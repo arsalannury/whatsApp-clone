@@ -9,7 +9,10 @@
 .whatsapp_user_main {
   @include displayes(flex, center, unset, nowrap, row);
   padding: 0 10px;
-  
+  &:hover {
+    cursor: pointer;
+    background-color: #f8f8f8;
+  }
   
   .user_image {
     img {
