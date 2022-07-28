@@ -11,7 +11,7 @@ const ChatComponent: React.FC = () => {
 
   return (
     <>
-      <div className="container" style={{ padding: "50px 9px 0 9px" }}>
+      <div className="container" >
         <div className="chat-container">
           <span className="message-text">nikzadam</span>
           <div className="time-done-situation">
@@ -21,62 +21,7 @@ const ChatComponent: React.FC = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="chat-container">
-          {/* <MessageSvg /> */}
-          <span className="message-text">.</span>
-          <div className="time-done-situation">
-            <span className="time">{messageTime}</span>
-            <DoneIcon className="done-icon" />
-          </div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="chat-container">
-          <span className="message-text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus,
-            debitis. Recusandae ullam dolores exercitationem, qui nulla quasi
-            earum rem, nesciunt quam voluptatem vero reprehenderit laudantium
-            perspiciatis, aliquam sequi et explicabo! Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Delectus, debitis. Recusandae ullam
-            dolores exercitationem, qui nulla quasi earum rem, nesciunt quam
-            voluptatem vero reprehenderit laudantium perspiciatis, aliquam sequi
-            et explicabo!
-          </span>
-          <div className="time-done-situation">
-            <span className="time">{messageTime}</span>
-            <DoneIcon className="done-icon" />
-          </div>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="chat-container">
-          <span className="message-text">
-            {" "}
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus,
-            debitis. Recusandae ullam dolores exercitationem, qui nulla quasi
-            earum rem, nesciunt quam voluptatem vero reprehenderit laudantium
-            perspiciatis, aliquam sequi et explicabo! Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Delectus, debitis. Recusandae ullam
-            dolores exercitationem, qui nulla quasi earum rem, nesciunt quam
-            voluptatem vero reprehenderit laudantium perspiciatis, aliquam sequi
-            et explicabo! Lorem ipsum dolor sit amet consectetur, adipisicing
-            elit. Delectus, debitis. Recusandae ullam dolores exercitationem,
-            qui nulla quasi earum rem, nesciunt quam voluptatem vero
-            reprehenderit laudantium perspiciatis, aliquam sequi et explicabo!
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus,
-            debitis. Recusandae ullam dolores exercitationem, qui nulla quasi
-            earum rem, nesciunt quam voluptatem vero reprehenderit laudantium
-            perspiciatis, aliquam sequi et explicabo!
-          </span>
-          <div className="time-done-situation">
-            <span className="time">{messageTime}</span>
-            <DoneIcon className="done-icon" />
-          </div>
-        </div>
-      </div>
+      
     </>
   );
 };

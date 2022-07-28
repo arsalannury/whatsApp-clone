@@ -47,6 +47,12 @@ const ChatPage: React.FC = () => {
 
       <div className="chat-main-content">
         <ChatComponent />
+        <ChatComponent />
+        <ChatComponent />
+        <ChatComponent />
+        <ChatComponent />
+        <ChatComponent />
+        <ChatComponent />
       </div>
 
       <div className="message-send-section">
