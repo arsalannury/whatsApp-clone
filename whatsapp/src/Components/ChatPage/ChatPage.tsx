@@ -6,6 +6,7 @@ import StickerSvg from "./StickerSvg";
 import VoiceSvg from "./VoiceSvg";
 import Picker from 'emoji-picker-react';
 import "./_chatPage.scss";
+import ChatComponent from "../ChatCoponent/ChatComponent";
 
 const ChatPage: React.FC = () => {
   const [message, setMessage] = useState<string>("");
@@ -44,7 +45,9 @@ const ChatPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="chat-main-content"></div>
+      <div className="chat-main-content">
+        <ChatComponent />
+      </div>
 
       <div className="message-send-section">
         <div className="icon-actions">

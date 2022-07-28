@@ -1,0 +1,70 @@
+@mixin displayes($display, $alignItem, $justify, $wrap, $direction) {
+  display: $display;
+  align-items: $alignItem;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+@function FONT_SIZE($em) {
+  @return 1em - $em;
+}
+
+.container {
+  padding: 0 9px;
+  position: relative;
+  margin-bottom: 12px;
+  @include displayes(flex, flex-end, center, unset, column);
+  .chat-container {
+    max-width: 65%;
+    min-width: 140px;
+    min-height: 40px;
+    background-color: #d9fdd3;
+    box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+    border-radius: 7.5px;
+    position: relative;
+    z-index: 200;
+    padding: 6px 7px 8px 9px;
+
+    // .message-svg {
+    //   position: absolute;
+    //   color: #d9fdd3;
+    //   top: 0;
+    //   z-index: 100;
+    //   display: block;
+    //   width: 8px;
+    //   height: 13px;
+    //   right: -8px;
+    // }
+
+    // &::before {
+    //     content: '';
+    //     background-color: #fff;
+    //     width: 10px;
+    //     height: 10px;
+    //     position: absolute;
+    //     top: 0;
+    //     right: -10px;
+    // }
+
+    .message-text {
+      font-size: FONT_SIZE(0.2);
+      color: #222;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      text-align: justify;
+    }
+    .time-done-situation {
+      @include displayes(flex, center, flex-end, nowrap, row);
+      margin: 4px 0 0 0;
+      .time {
+        font-size: FONT_SIZE(0.3);
+        color: #555;
+      }
+      .done-icon {
+        font-size: 1em;
+        margin-left: 2px;
+      }
+    }
+  }
+}
