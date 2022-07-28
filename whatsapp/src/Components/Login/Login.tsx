@@ -1,22 +1,32 @@
 import "./_login.scss";
 import QRCode from "react-qr-code";
-import {useHistory} from 'react-router-dom';
-import { auth, googleProvider } from "../../firebaseConfig";
+import { useHistory } from "react-router-dom";
+import { auth, db, googleProvider } from "../../firebaseConfig";
+import { useAuthContext } from "../../Context/AuthContext";
 
 const Login: React.FC = () => {
+  const { changeUser } = useAuthContext();
 
+  const history = useHistory();
   const signInWhatsApp = () => {
-    const history = useHistory()
-    auth.signInWithPopup(googleProvider)
-    .then((result) => {
-      const newLoginUser = {
-        fullName : result.user?.displayName,
-        email : result.user?.email,
-        photo : result.user?.photoURL
-      }
-      history.replace('/')
-    })
-  }
+    auth
+      .signInWithPopup(googleProvider)
+      .then((result) => {
+        const newLoginUser = {
+          fullName: result.user?.displayName,
+          email: result.user?.email,
+          photo: result.user?.photoURL,
+        };
+        history.replace("/");
+        changeUser(newLoginUser);
+        const userEmail: any = result.user?.email;
+
+        db.collection("users").doc(userEmail).set(newLoginUser);
+      })
+      .catch((error) => {
+        throw new Error(error.message);
+      })
+  };
 
   return (
     <>
@@ -31,7 +41,7 @@ const Login: React.FC = () => {
         </div>
         <hr className="hr" />
         <div className="login_btn">
-          <button className="login">
+          <button className="login" onClick={signInWhatsApp}>
             <span className="login_text">Login with google</span>
             <span className="login_text_replace">Enjoy whats app</span>
             <img src="google.png" alt="google_login" />

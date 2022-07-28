@@ -1,8 +1,11 @@
 import React , {useState,useContext,createContext} from 'react'
 
-const AuthContext = createContext({});
+const AuthContext = createContext({
+    user : null,
+    changeUser : (user) => {}
+})
 
-export function useAuthContext () {
+export const useAuthContext = () => {
     return useContext(AuthContext);
 }
 

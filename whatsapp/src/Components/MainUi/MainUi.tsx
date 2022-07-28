@@ -1,10 +1,12 @@
 import "./_mainUi.scss";
 import Login from "../Login/Login";
 import Home from "../Home/Home";
-import { useState } from "react";
+import { useAuthContext } from "../../Context/AuthContext";
 
 const MainUi: React.FC = () => {
-  const [user, setUser] = useState(true);
+  
+ const {user} = useAuthContext();
+
   return (
     <>
       <div className="main_ui">
