@@ -1,7 +1,9 @@
 import "./_user.scss";
+import {Link} from 'react-router-dom';
 
 function User() {
   return (
+   <Link to={'/chat-page'}>
     <div className="whatsapp_user_main">
       <div className="user_image">
         <img src="profile.jpg" alt="user_profile" />
@@ -16,6 +18,7 @@ function User() {
         </p>
       </div>
     </div>
+    </Link>
   );
 }
 

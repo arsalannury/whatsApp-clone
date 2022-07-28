@@ -1,7 +1,23 @@
 import "./_login.scss";
 import QRCode from "react-qr-code";
+import {useHistory} from 'react-router-dom';
+import { auth, googleProvider } from "../../firebaseConfig";
 
 const Login: React.FC = () => {
+
+  const signInWhatsApp = () => {
+    const history = useHistory()
+    auth.signInWithPopup(googleProvider)
+    .then((result) => {
+      const newLoginUser = {
+        fullName : result.user?.displayName,
+        email : result.user?.email,
+        photo : result.user?.photoURL
+      }
+      history.replace('/')
+    })
+  }
+
   return (
     <>
       <div className="login_section">

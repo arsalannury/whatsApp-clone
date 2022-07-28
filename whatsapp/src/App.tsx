@@ -2,8 +2,6 @@ import "./index.css";
 import LoadWhatsApp from "./Components/LoadWhatsApp/LoadWhatsApp";
 import { useEffect, useState } from "react";
 import MainUi from "./Components/MainUi/MainUi";
-import Login from "./Components/Login/Login";
-import {Route,Switch} from 'react-router-dom';
 
 function App() {
   const [loading, isLoading] = useState<boolean>(true);
@@ -14,13 +12,7 @@ function App() {
     }, 3000);
   }, []);
 
-  return (
-    <>
-      {/* <Login /> */}
-      {/* {loading && <LoadWhatsApp />} */}
-      <MainUi />
-    </>
-  );
+  return <>{loading ? <LoadWhatsApp /> : <MainUi />}</>;
 }
 
 export default App;
