@@ -17,9 +17,10 @@ const Login: React.FC = () => {
           email: result.user?.email,
           photo: result.user?.photoURL,
         };
+        const userEmail: any = result.user?.email;
         history.replace("/");
         changeUser(newLoginUser);
-        const userEmail: any = result.user?.email;
+        localStorage.setItem("user",JSON.stringify(newLoginUser));
 
         db.collection("users").doc(userEmail).set(newLoginUser);
       })

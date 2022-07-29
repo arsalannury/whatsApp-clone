@@ -1,31 +1,33 @@
-import React , {useState,useContext,createContext} from 'react'
+import React, { useState, useContext, createContext } from "react";
+import { ChildrenProps } from "../Components/InterFaces/ChildrenInterface";
 
 const AuthContext = createContext({
-    user : null,
-    changeUser : (user) => {}
-})
+  user: null || JSON.parse(localStorage.getItem("user")!),
+  changeUser: (user) => {},
+});
 
 export const useAuthContext = () => {
-    return useContext(AuthContext);
-}
+  return useContext(AuthContext);
+};
 
-const AuthContextProvider = () => {
-    const [user,setUser] = useState(null);
+const AuthContextProvider = ({ children }: ChildrenProps) => {
+  let userInLocalStorage = JSON.parse(localStorage.getItem("user")!);
+  const [user, setUser] = useState(userInLocalStorage ? userInLocalStorage : null);
 
-    const changeUser = (user): void => {
-       setUser(user)
-    }
+  const changeUser = (user): void => {
+    setUser(user);
+  };
 
   return (
     <AuthContext.Provider
-    value={{
+      value={{
         user,
-        changeUser
-    }}
+        changeUser,
+      }}
     >
-
+      {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
 
-export default AuthContextProvider
+export default AuthContextProvider;
