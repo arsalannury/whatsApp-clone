@@ -8,8 +8,30 @@
 
 .whatsapp_sidebar {
   min-width: 475px;
+  position: relative;
   @include displayes(flex, center, start, unset, column);
-
+  .menu_container {
+    position: absolute;
+    transition: all .3s ease;
+    top: 40px;
+    right: 35px;
+    z-index: 1000;
+    box-shadow: 0 0 .5px #222;
+    width: 200px;
+    overflow: hidden;
+    background-color: #fff;
+    @include displayes(flex, start, space-between, nowrap, column);
+    span {
+      cursor: pointer;
+      font-size: .9em;
+       padding: 15px;
+      color:#777;
+      width: 100%;
+      &:hover {
+        background-color: #f5f6f6;
+      }
+    }
+  }
   .header_chat_list {
     width: 100%;
     padding: 5px 13px;
@@ -19,26 +41,7 @@
     overflow: hidden;
     @include displayes(flex, center, space-between, unset, row);
 
-    .menu_container {
-      position: absolute;
-      top: 70px;
-      right: 0;
-      z-index: 1000;
-      width: 200px;
-      overflow: hidden;
-      background-color: #fff;
-      @include displayes(flex, start, space-between, nowrap, column);
-      span {
-        cursor: pointer;
-        font-size: .9em;
-         padding: 15px;
-        color:#777;
-        width: 100%;
-        &:hover {
-          background-color: #f5f6f6;
-        }
-      }
-    }
+    
 
 
     .avatar {

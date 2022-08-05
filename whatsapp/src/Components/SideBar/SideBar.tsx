@@ -6,23 +6,32 @@ import SearchSvg from "./SearchSvg";
 import StatusSvg from "./StatusSvg";
 import "./_sidebar.scss";
 import { useState } from "react";
-import Fade from "react-reveal/Fade";
 
 const SideBar: React.FC = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
+  const changeMenuDisplay = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <>
       <div className="whatsapp_sidebar">
+        <div
+          className="menu_container"
+          style={{
+            opacity: showMenu ? 1 : 0,
+            visibility: showMenu ? "visible" : "hidden",
+          }}
+        >
+          <span className="menu_item menu_item_group ">New group</span>
+          <span className="menu_item menu_item_messages ">
+            Started messages
+          </span>
+          <span className="menu_item menu_item_settings ">Settings</span>
+          <span className="menu_item menu_item_logout ">Log out</span>
+        </div>
         <div className="header_chat_list">
-        <div className="menu_container">
-              <span className="menu_item menu_item_group ">New group</span>
-              <span className="menu_item menu_item_messages ">
-                Started messages
-              </span>
-              <span className="menu_item menu_item_settings ">Settings</span>
-              <span className="menu_item menu_item_logout ">Log out</span>
-            </div>
           <div className="avatar">
             <img
               src="profile.jpg"
@@ -33,7 +42,7 @@ const SideBar: React.FC = () => {
           <div className="icons">
             <StatusSvg />
             <MessageSvg />
-            <MenuSvg />
+            <MenuSvg menuDisplay={changeMenuDisplay} />
           </div>
         </div>
         <div className="search_bar">

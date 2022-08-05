@@ -1,7 +1,10 @@
-const MenuSvg = () => {
+import {Props} from '../InterFaces/MenuSvgProp';
+
+const MenuSvg = (props: Props) => {
   return (
     <>
       <span
+        onClick={props.menuDisplay}
         data-testid="menu"
         data-icon="menu"
         className=""
