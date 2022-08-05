@@ -5,13 +5,24 @@ import MessageSvg from "./MessageSvg";
 import SearchSvg from "./SearchSvg";
 import StatusSvg from "./StatusSvg";
 import "./_sidebar.scss";
+import { useState } from "react";
+import Fade from "react-reveal/Fade";
 
 const SideBar: React.FC = () => {
-  let key = 0;
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+
   return (
     <>
       <div className="whatsapp_sidebar">
         <div className="header_chat_list">
+        <div className="menu_container">
+              <span className="menu_item menu_item_group ">New group</span>
+              <span className="menu_item menu_item_messages ">
+                Started messages
+              </span>
+              <span className="menu_item menu_item_settings ">Settings</span>
+              <span className="menu_item menu_item_logout ">Log out</span>
+            </div>
           <div className="avatar">
             <img
               src="profile.jpg"
@@ -27,15 +38,18 @@ const SideBar: React.FC = () => {
         </div>
         <div className="search_bar">
           <div className="search_text_icon">
-         <SearchSvg />
-          <input type="text" className="whatsapp_search_input" placeholder="Search or start new chat" />
+            <SearchSvg />
+            <input
+              type="text"
+              className="whatsapp_search_input"
+              placeholder="Search or start new chat"
+            />
           </div>
           <div className="filter_chat_wrapper">
-          <FilterChatSvg />
+            <FilterChatSvg />
           </div>
         </div>
         <div className="chat_list">
-          
           <User />
           <User />
           <User />
@@ -65,7 +79,6 @@ const SideBar: React.FC = () => {
           <User />
           <User />
           <User />
-
         </div>
       </div>
     </>
