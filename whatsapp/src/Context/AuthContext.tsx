@@ -18,6 +18,8 @@ const AuthContextProvider = ({ children }: ChildrenProps) => {
     setUser(user);
   };
 
+  
+ 
   return (
     <AuthContext.Provider
       value={{

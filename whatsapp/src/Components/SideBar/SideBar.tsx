@@ -5,14 +5,44 @@ import MessageSvg from "./MessageSvg";
 import SearchSvg from "./SearchSvg";
 import StatusSvg from "./StatusSvg";
 import "./_sidebar.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAuthContext } from "../../Context/AuthContext";
+import { db } from "../../firebaseConfig";
 
 const SideBar: React.FC = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [users, setUsers] = useState<any[]>([]);
+  const { changeUser, user } = useAuthContext();
+  const [searchText, setTextSearch] = useState<string>("");
 
   const changeMenuDisplay = () => {
     setShowMenu(!showMenu);
   };
+
+  useEffect(() => {
+    const getUsersFromDatabase = async () => {
+      const response = await db.collection("users").onSnapshot((snapshot) => {
+        setUsers(
+          snapshot.docs.filter((doc) => doc.data()?.email !== user?.email)
+        );
+      });
+    };
+    getUsersFromDatabase();
+  }, []);
+
+  const searchUser = users.filter((user) => {
+    if (searchText) {
+      if (
+        user.data().fullName.toLowerCase().includes(searchText.toLowerCase())
+      ) {
+        return user;
+      }
+    }
+  });
+
+  const userSearchResult = searchUser.map((user) => {
+    return <User name={user.data().name} photo={user.data().photo} />;
+  });
 
   return (
     <>
@@ -29,7 +59,12 @@ const SideBar: React.FC = () => {
             Started messages
           </span>
           <span className="menu_item menu_item_settings ">Settings</span>
-          <span className="menu_item menu_item_logout ">Log out</span>
+          <span
+            className="menu_item menu_item_logout"
+            onClick={() => changeUser(null)}
+          >
+            Log out
+          </span>
         </div>
         <div className="header_chat_list">
           <div className="avatar">
@@ -52,6 +87,9 @@ const SideBar: React.FC = () => {
               type="text"
               className="whatsapp_search_input"
               placeholder="Search or start new chat"
+              onInput={() => searchUser}
+              value={searchText}
+              onChange={(e) => setTextSearch(e.target.value)}
             />
           </div>
           <div className="filter_chat_wrapper">
@@ -59,35 +97,11 @@ const SideBar: React.FC = () => {
           </div>
         </div>
         <div className="chat_list">
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
-          <User />
+          {userSearchResult.length > 0 ? (
+            userSearchResult
+          ) : (
+            <User name={"Arsalan"} photo={"profile.jpg"} />
+          )}
         </div>
       </div>
     </>
