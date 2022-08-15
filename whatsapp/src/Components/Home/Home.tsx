@@ -11,7 +11,7 @@ const Home: React.FC = () => {
         <SideBar />
         <Switch>
           <Route path={'/'} exact component={ChatPageEmptySvg} />
-          <Route path={'/chat-page'} component={ChatPage} />
+          <Route path={'/:userId'} component={ChatPage} />
         </Switch>
       </div>
     </>

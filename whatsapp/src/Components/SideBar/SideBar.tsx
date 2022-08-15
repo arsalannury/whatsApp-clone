@@ -41,7 +41,7 @@ const SideBar: React.FC = () => {
   });
 
   const userSearchResult = searchUser.map((user) => {
-    return <User name={user.data().name} photo={user.data().photo} />;
+    return <User name={user.data().name} photo={user.data().photo} email={user.data().email} />;
   });
 
   return (
@@ -100,7 +100,7 @@ const SideBar: React.FC = () => {
           {userSearchResult.length > 0 ? (
             userSearchResult
           ) : (
-            <User name={"Arsalan"} photo={"profile.jpg"} />
+            <User name={"Arsalan"} photo={"profile.jpg"} email={"arsaawf"} />
           )}
         </div>
       </div>
