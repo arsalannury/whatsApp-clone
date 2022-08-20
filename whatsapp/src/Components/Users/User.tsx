@@ -6,7 +6,7 @@ function User({ name, photo, email }) {
 
   const navigateToCurrentChat = (email: string) => {
     if (email) {
-      history.push(`/${email}`);
+      history.push(`/${email}`);  
     }
   };
 

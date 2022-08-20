@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react";
+import React, { SyntheticEvent, useState , useEffect} from "react";
 import MenuSvg from "../SideBar/MenuSvg";
 import AttachFileSvg from "./AttachFileSvg";
 import LensSvg from "./LensSvg";
@@ -6,11 +6,26 @@ import StickerSvg from "./StickerSvg";
 import VoiceSvg from "./VoiceSvg";
 import Picker from 'emoji-picker-react';
 import "./_chatPage.scss";
+import {useParams} from "react-router-dom";
 import ChatComponent from "../ChatCoponent/ChatComponent";
+import { db } from "../../firebaseConfig";
 
 const ChatPage: React.FC = () => {
   const [message, setMessage] = useState<string>("");
   const [emoji, setEmoji] = useState<boolean>(false);
+
+  const {id} = useParams(); 
+
+  useEffect(() => {
+    console.log(id);
+    
+    const user = async () => {
+      const result = await db.collection("user").doc(id).onSnapshot(snapShot => {
+        console.log(snapShot.data());
+      })
+    }
+    user();
+  },[])
 
   const handleChangeMssage = (
     event: React.ChangeEvent<HTMLInputElement>
