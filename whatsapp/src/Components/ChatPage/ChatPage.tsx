@@ -14,14 +14,12 @@ const ChatPage: React.FC = () => {
   const [message, setMessage] = useState<string>("");
   const [emoji, setEmoji] = useState<boolean>(false);
 
-  const {id} = useParams(); 
+  const {userId} = useParams(); 
 
-  useEffect(() => {
-    console.log(id);
-    
-    const user = async () => {
-      const result = await db.collection("user").doc(id).onSnapshot(snapShot => {
-        console.log(snapShot.data());
+  useEffect(() => {  
+   const user = async () => {
+      const result = await db.collection("users").doc(userId).onSnapshot((snapshot )=> {
+        console.log(snapshot.data());
       })
     }
     user();
