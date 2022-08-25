@@ -11,7 +11,7 @@ function User({ name, photo, email }) {
   };
 
   return (
-    //  <Link to={'/chat-page'}>
+
     <div
       className="whatsapp_user_main"
       onClick={() => navigateToCurrentChat(email)}
