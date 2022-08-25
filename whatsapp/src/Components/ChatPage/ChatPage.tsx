@@ -19,6 +19,7 @@ const ChatPage: React.FC = () => {
   const [chat, setChat] = useState<
     ChatUserInterface["user"] | firebase.firestore.DocumentData
   >();
+  const [messageData,setMessageData] = useState<firebase.firestore.DocumentData[]>([])
 
   const { userId } = useParams();
   const { user, changeUser } = useAuthContext();
@@ -70,9 +71,31 @@ const ChatPage: React.FC = () => {
           photo:chat?.photo,
           lastMessage:message
         })
+        db.collection("chatList").doc(userId).collection("list").doc(user.email).set({
+          email:user.email,
+          fullName:user.fullName,
+          photo:user.photo,
+          lastMessage:message
+        })
+
+        setMessage("");
       }
     }
   };
+
+  const getMessagesFromFireStore = async () => {
+      const result = await db.collection("chat").doc(userId).collection("messages").orderBy("time","asc").onSnapshot((snapShot) => {
+
+        let messages = snapShot.docs.map((doc) => doc.data())
+
+        let newMessage = messages.filter((message) => 
+        message.senderEmail === (user.email || userId) ||
+        message.rerecieverEmail === (user.email || userId)
+        )
+
+        setMessageData(newMessage);
+      })
+  }
 
   return (
     <div className="chat-page-container">
