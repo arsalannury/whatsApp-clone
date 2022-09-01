@@ -46,8 +46,8 @@ const ChatPage: React.FC = () => {
         .orderBy("time", "asc")
         .onSnapshot((snapShot) => {
           let messages = snapShot.docs.map((doc) => doc.data());
-           console.log(messages);
-           
+          console.log(messages);
+
           let newMessage = messages.filter(
             (message) =>
               message.senderEmail === (user.email || userId) ||
@@ -137,13 +137,15 @@ const ChatPage: React.FC = () => {
       </div>
 
       <div className="chat-main-content">
-        <ChatComponent />
-        <ChatComponent />
-        <ChatComponent />
-        <ChatComponent />
-        <ChatComponent />
-        <ChatComponent />
-        <ChatComponent />
+        {messageData.map((message,index) => (
+          <ChatComponent
+            messageText={message.messageText}
+            recieverEmail={message.recieverEmail}
+            senderEmail={message.senderEmail}
+            time={message.time}
+            key={index}
+          />
+        ))}
       </div>
 
       <div className="message-send-section">
