@@ -19,7 +19,9 @@ const ChatPage: React.FC = () => {
   const [chat, setChat] = useState<
     ChatUserInterface["user"] | firebase.firestore.DocumentData
   >();
-  const [messageData,setMessageData] = useState<firebase.firestore.DocumentData[]>([])
+  const [messageData, setMessageData] = useState<
+    firebase.firestore.DocumentData[]
+  >([]);
 
   const { userId } = useParams();
   const { user, changeUser } = useAuthContext();
@@ -36,22 +38,28 @@ const ChatPage: React.FC = () => {
         });
     };
 
-    const getMessagesFromFireStore = async ():Promise<any> => {
-       return await db.collection("chat").doc(userId).collection("messages").orderBy("time","asc").onSnapshot((snapShot) => {
+    const getMessagesFromFireStore = async (): Promise<any> => {
+      return await db
+        .collection("chats")
+        .doc(userId)
+        .collection("messages")
+        .orderBy("time", "asc")
+        .onSnapshot((snapShot) => {
+          let messages = snapShot.docs.map((doc) => doc.data());
+           console.log(messages);
+           
+          let newMessage = messages.filter(
+            (message) =>
+              message.senderEmail === (user.email || userId) ||
+              message.recieverEmail === (user.email || userId)
+          );
 
-        let messages = snapShot.docs.map((doc) => doc.data())
-
-        let newMessage = messages.filter((message) => 
-        message.senderEmail === (user.email || userId) ||
-        message.recieverEmail === (user.email || userId)
-        )
-
-        setMessageData(newMessage);
-      })
-  }
+          setMessageData(newMessage);
+        });
+    };
 
     userFn();
-    getMessagesFromFireStore()
+    getMessagesFromFireStore();
   }, []);
 
   const handleChangeMssage = (
@@ -69,7 +77,6 @@ const ChatPage: React.FC = () => {
   };
 
   const sendMessage = (event) => {
-
     if (event.code === "Enter") {
       if (userId) {
         const content = {
@@ -78,28 +85,37 @@ const ChatPage: React.FC = () => {
           recieverEmail: userId,
           time: firebase.firestore.Timestamp.now(),
         };
-        
-        db.collection('chats').doc(user.email).collection("messages").add(content);
-        db.collection('chats').doc(userId).collection("messages").add(content);
-        db.collection("chatList").doc(user.email).collection("list").doc(userId).set({
-          email:chat?.email,
-          fullName:chat?.fullName,
-          photo:chat?.photo,
-          lastMessage:message
-        })
-        db.collection("chatList").doc(userId).collection("list").doc(user.email).set({
-          email:user.email,
-          fullName:user.fullName,
-          photo:user.photo,
-          lastMessage:message
-        })
+
+        db.collection("chats")
+          .doc(user.email)
+          .collection("messages")
+          .add(content);
+        db.collection("chats").doc(userId).collection("messages").add(content);
+        db.collection("chatList")
+          .doc(user.email)
+          .collection("list")
+          .doc(userId)
+          .set({
+            email: chat?.email,
+            fullName: chat?.fullName,
+            photo: chat?.photo,
+            lastMessage: message,
+          });
+        db.collection("chatList")
+          .doc(userId)
+          .collection("list")
+          .doc(user.email)
+          .set({
+            email: user.email,
+            fullName: user.fullName,
+            photo: user.photo,
+            lastMessage: message,
+          });
 
         setMessage("");
       }
     }
   };
-
-  
 
   return (
     <div className="chat-page-container">
