@@ -25,7 +25,7 @@ const ChatPage: React.FC = () => {
   const { user, changeUser } = useAuthContext();
 
   useEffect(() => {
-    const user = async () => {
+    const userFn = async () => {
       const result = await db
         .collection("users")
         .doc(userId)
@@ -35,7 +35,23 @@ const ChatPage: React.FC = () => {
           setChat(data);
         });
     };
-    user();
+
+    const getMessagesFromFireStore = async ():Promise<any> => {
+       return await db.collection("chat").doc(userId).collection("messages").orderBy("time","asc").onSnapshot((snapShot) => {
+
+        let messages = snapShot.docs.map((doc) => doc.data())
+
+        let newMessage = messages.filter((message) => 
+        message.senderEmail === (user.email || userId) ||
+        message.recieverEmail === (user.email || userId)
+        )
+
+        setMessageData(newMessage);
+      })
+  }
+
+    userFn();
+    getMessagesFromFireStore()
   }, []);
 
   const handleChangeMssage = (
@@ -83,19 +99,7 @@ const ChatPage: React.FC = () => {
     }
   };
 
-  const getMessagesFromFireStore = async () => {
-      const result = await db.collection("chat").doc(userId).collection("messages").orderBy("time","asc").onSnapshot((snapShot) => {
-
-        let messages = snapShot.docs.map((doc) => doc.data())
-
-        let newMessage = messages.filter((message) => 
-        message.senderEmail === (user.email || userId) ||
-        message.rerecieverEmail === (user.email || userId)
-        )
-
-        setMessageData(newMessage);
-      })
-  }
+  
 
   return (
     <div className="chat-page-container">
